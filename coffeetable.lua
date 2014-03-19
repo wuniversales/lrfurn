@@ -102,7 +102,7 @@ minetest.register_node("lrfurn:coffeetable_front", {
 minetest.register_alias("lrfurn:coffeetable", "lrfurn:coffeetable_back")
 
 minetest.register_craft({
-	output = "lrfurn:coffeetable",
+	output = "lrfurn:coffeetable_back",
 	recipe = {
 		{"", "", "", },
 		{"stairs:slab_wood", "stairs:slab_wood", "stairs:slab_wood", },
@@ -111,7 +111,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "lrfurn:coffeetable",
+	output = "lrfurn:coffeetable_back",
 	recipe = {
 		{"", "", "", },
 		{"moreblocks:slab_wood", "moreblocks:slab_wood", "moreblocks:slab_wood", },
@@ -120,7 +120,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "lrfurn:coffeetable",
+	output = "lrfurn:coffeetable_back",
 	recipe = {
 		{"", "", "", },
 		{"group:wood_slab", "group:wood_slab", "group:wood_slab", },
