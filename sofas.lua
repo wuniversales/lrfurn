@@ -139,7 +139,7 @@ for i in ipairs(sofas_list) do
 	minetest.register_alias("lrfurn:sofa_"..colour, "lrfurn:sofa_right_"..colour)
 
 	minetest.register_craft({
-		output = "lrfurn:sofa_"..colour,
+		output = "lrfurn:sofa_right_"..colour,
 		recipe = {
 			{"wool:"..colour, "wool:"..colour, "", },
 			{"stairs:slab_wood", "stairs:slab_wood", "", },
@@ -148,7 +148,7 @@ for i in ipairs(sofas_list) do
 	})
 
 	minetest.register_craft({
-		output = "lrfurn:sofa_"..colour,
+		output = "lrfurn:sofa_right_"..colour,
 		recipe = {
 			{"wool:"..colour, "wool:"..colour, "", },
 			{"moreblocks:slab_wood", "moreblocks:slab_wood", "", },
@@ -157,7 +157,7 @@ for i in ipairs(sofas_list) do
 	})
 
 	minetest.register_craft({
-		output = "lrfurn:sofa_"..colour,
+		output = "lrfurn:sofa_right_"..colour,
 		recipe = {
 			{"wool:"..colour, "wool:"..colour, "", },
 			{"group:wood_slab", "group:wood_slab", "", },
