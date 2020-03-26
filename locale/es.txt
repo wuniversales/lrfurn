@@ -1,0 +1,40 @@
+# Template
+
+### armchairs.lua ###
+Red Armchair = Sillón rojo
+Orange Armchair = Sillón naranja
+Yellow Armchair = Sillón amarillo
+Green Armchair = Sillón verde 
+Blue Armchair = Sillón azul
+Violet Armchair = Sillón violeta
+Black Armchair = Sillón negro
+Grey Armchair = Sillón gris
+White Armchair = Sillón blanco
+
+### coffeetable.lua ###
+Coffee Table = Mesa de café
+
+### endtabel.lua ###
+End Table = Mesa final
+
+### longsofas.lua ###
+Red Long Sofa = Sofá largo rojo
+Orange Long Sofa = Sofá largo naranja
+Yellow Long Sofa = Sofá largo amarillo
+Green Long Sofa = Sofá largo verde
+Blue Long Sofa = Sofá largo azul
+Violet Long Sofa = Sofá largo violeta
+Black Long Sofa = Sofá largo negro
+Grey Long Sofa = Sofá largo gris
+White Long Sofa = Sofá largo blanco
+
+### sofas.lua ###
+Red Sofa = Sofá rojo
+Orange Sofa = Sofá naranja
+Yellow Sofa = Sofá amarillo
+Green Sofa = Sofá verde
+Blue Sofa = Sofá azul
+Violet Sofa = Sofá violeta
+Black Sofa = Sofá negro
+Grey Sofa = Sofá gris
+White Sofa = Sofá blanco
