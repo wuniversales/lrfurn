@@ -7,6 +7,9 @@ else
   S = function ( s ) return s end
 end
 
+if minetest.get_modpath("mcl_sounds") then
+    default=mcl_sounds
+end
 
 local longsofas_list = {
 	{ "Red Long Sofa", "red"},
@@ -194,33 +197,61 @@ for i in ipairs(longsofas_list) do
 	
 	minetest.register_alias("lrfurn:longsofa_"..colour, "lrfurn:longsofa_right_"..colour)
 	
-	minetest.register_craft({
-		output = "lrfurn:longsofa_"..colour,
-		recipe = {
-			{"wool:"..colour, "wool:"..colour, "wool:"..colour, },
-			{"stairs:slab_wood", "stairs:slab_wood", "stairs:slab_wood", },
-			{"default:stick", "default:stick", "default:stick", }
-		}
-	})
+    if minetest.get_modpath("mcl_core") then
+        minetest.register_craft({
+            output = "lrfurn:longsofa_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "mcl_wool:"..colour, "mcl_wool:"..colour, },
+                {"mcl_stairs:slab_wood", "mcl_stairs:slab_wood", "mcl_stairs:slab_wood", },
+                {"mcl_core:stick", "mcl_core:stick", "mcl_core:stick", }
+            }
+        })
 
-	minetest.register_craft({
-		output = "lrfurn:longsofa_"..colour,
-		recipe = {
-			{"wool:"..colour, "wool:"..colour, "wool:"..colour, },
-			{"moreblocks:slab_wood", "moreblocks:slab_wood", "moreblocks:slab_wood", },
-			{"default:stick", "default:stick", "default:stick", }
-		}
-	})
+        minetest.register_craft({
+            output = "lrfurn:longsofa_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "mcl_wool:"..colour, "mcl_wool:"..colour, },
+                {"mcl_core:stick", "mcl_core:stick", "mcl_core:stick", },
+                {"mcl_core:stick", "mcl_core:stick", "mcl_core:stick", }
+            }
+        })
 
-	minetest.register_craft({
-		output = "lrfurn:longsofa_"..colour,
-		recipe = {
-			{"wool:"..colour, "wool:"..colour, "wool:"..colour, },
-			{"group:wood_slab", "group:wood_slab", "group:wood_slab", },
-			{"default:stick", "default:stick", "default:stick", }
-		}
-	})
+        minetest.register_craft({
+            output = "lrfurn:longsofa_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "mcl_wool:"..colour, "mcl_wool:"..colour, },
+                {"group:wood_slab", "group:wood_slab", "group:wood_slab", },
+                {"mcl_core:stick", "mcl_core:stick", "mcl_core:stick", }
+            }
+        })
+    else
+        minetest.register_craft({
+            output = "lrfurn:longsofa_"..colour,
+            recipe = {
+                {"wool:"..colour, "wool:"..colour, "wool:"..colour, },
+                {"stairs:slab_wood", "stairs:slab_wood", "stairs:slab_wood", },
+                {"default:stick", "default:stick", "default:stick", }
+            }
+        })
 
+        minetest.register_craft({
+            output = "lrfurn:longsofa_"..colour,
+            recipe = {
+                {"wool:"..colour, "wool:"..colour, "wool:"..colour, },
+                {"moreblocks:slab_wood", "moreblocks:slab_wood", "moreblocks:slab_wood", },
+                {"default:stick", "default:stick", "default:stick", }
+            }
+        })
+
+        minetest.register_craft({
+            output = "lrfurn:longsofa_"..colour,
+            recipe = {
+                {"wool:"..colour, "wool:"..colour, "wool:"..colour, },
+                {"group:wood_slab", "group:wood_slab", "group:wood_slab", },
+                {"default:stick", "default:stick", "default:stick", }
+            }
+        })
+    end
 end
 
 if minetest.setting_get("log_mods") then
