@@ -7,6 +7,10 @@ else
   S = function ( s ) return s end
 end
 
+if minetest.get_modpath("mcl_sounds") then
+    default=mcl_sounds
+end
+
 
 local sofas_list = {
 	{ "Red Sofa", "red"},
@@ -137,34 +141,61 @@ for i in ipairs(sofas_list) do
 	})
 	
 	minetest.register_alias("lrfurn:sofa_"..colour, "lrfurn:sofa_right_"..colour)
+    if minetest.get_modpath("mcl_core") then
+        minetest.register_craft({
+            output = "lrfurn:sofa_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "mcl_wool:"..colour, "", },
+                {"mcl_stairs:slab_wood", "mcl_stairs:slab_wood", "", },
+                {"mcl_core:stick", "mcl_core:stick", "", }
+            }
+        })
 
-	minetest.register_craft({
-		output = "lrfurn:sofa_"..colour,
-		recipe = {
-			{"wool:"..colour, "wool:"..colour, "", },
-			{"stairs:slab_wood", "stairs:slab_wood", "", },
-			{"default:stick", "default:stick", "", }
-		}
-	})
+        minetest.register_craft({
+            output = "lrfurn:sofa_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "mcl_wool:"..colour, "", },
+                {"mcl_core:stick", "mcl_core:stick", "", },
+                {"mcl_core:stick", "mcl_core:stick", "", }
+            }
+        })
 
-	minetest.register_craft({
-		output = "lrfurn:sofa_"..colour,
-		recipe = {
-			{"wool:"..colour, "wool:"..colour, "", },
-			{"moreblocks:slab_wood", "moreblocks:slab_wood", "", },
-			{"default:stick", "default:stick", "", }
-		}
-	})
+        minetest.register_craft({
+            output = "lrfurn:sofa_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "mcl_wool:"..colour, "", },
+                {"mcl_core:stick", "mcl_core:stick", "", },
+                {"mcl_core:stick", "mcl_core:stick", "", }
+            }
+        })
+    else
+        minetest.register_craft({
+            output = "lrfurn:sofa_"..colour,
+            recipe = {
+                {"wool:"..colour, "wool:"..colour, "", },
+                {"stairs:slab_wood", "stairs:slab_wood", "", },
+                {"default:stick", "default:stick", "", }
+            }
+        })
 
-	minetest.register_craft({
-		output = "lrfurn:sofa_"..colour,
-		recipe = {
-			{"wool:"..colour, "wool:"..colour, "", },
-			{"group:wood_slab", "group:wood_slab", "", },
-			{"default:stick", "default:stick", "", }
-		}
-	})
+        minetest.register_craft({
+            output = "lrfurn:sofa_"..colour,
+            recipe = {
+                {"wool:"..colour, "wool:"..colour, "", },
+                {"moreblocks:slab_wood", "moreblocks:slab_wood", "", },
+                {"default:stick", "default:stick", "", }
+            }
+        })
 
+        minetest.register_craft({
+            output = "lrfurn:sofa_"..colour,
+            recipe = {
+                {"wool:"..colour, "wool:"..colour, "", },
+                {"group:wood_slab", "group:wood_slab", "", },
+                {"default:stick", "default:stick", "", }
+            }
+        })
+    end
 end
 
 if minetest.setting_get("log_mods") then
