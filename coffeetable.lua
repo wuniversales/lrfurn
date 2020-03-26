@@ -7,6 +7,9 @@ else
   S = function ( s ) return s end
 end
 
+if minetest.get_modpath("mcl_sounds") then
+    default=mcl_sounds
+end
 
 minetest.register_node("lrfurn:coffeetable_back", {
 	description = S("Coffee Table"),
@@ -100,34 +103,61 @@ minetest.register_node("lrfurn:coffeetable_front", {
 })
 
 minetest.register_alias("lrfurn:coffeetable", "lrfurn:coffeetable_back")
+if minetest.get_modpath("mcl_core") then
+    minetest.register_craft({
+        output = "lrfurn:coffeetable",
+        recipe = {
+            {"", "", "", },
+            {"mcl_stairs:slab_wood", "mcl_stairs:slab_wood", "mcl_stairs:slab_wood", },
+            {"mcl_core:stick", "", "mcl_core:stick", }
+        }
+    })
 
-minetest.register_craft({
-	output = "lrfurn:coffeetable",
-	recipe = {
-		{"", "", "", },
-		{"stairs:slab_wood", "stairs:slab_wood", "stairs:slab_wood", },
-		{"default:stick", "", "default:stick", }
-	}
-})
+    minetest.register_craft({
+        output = "lrfurn:coffeetable",
+        recipe = {
+            {"", "", "", },
+            {"mcl_core:stick", "mcl_core:stick", "mcl_core:stick", },
+            {"mcl_core:stick", "", "mcl_core:stick", }
+        }
+    })
 
-minetest.register_craft({
-	output = "lrfurn:coffeetable",
-	recipe = {
-		{"", "", "", },
-		{"moreblocks:slab_wood", "moreblocks:slab_wood", "moreblocks:slab_wood", },
-		{"default:stick", "", "default:stick", }
-	}
-})
+    minetest.register_craft({
+        output = "lrfurn:coffeetable",
+        recipe = {
+            {"", "", "", },
+            {"group:wood_slab", "group:wood_slab", "group:wood_slab", },
+            {"mcl_core:stick", "", "mcl_core:stick", }
+        }
+    })
+else
+    minetest.register_craft({
+        output = "lrfurn:coffeetable",
+        recipe = {
+            {"", "", "", },
+            {"stairs:slab_wood", "stairs:slab_wood", "stairs:slab_wood", },
+            {"default:stick", "", "default:stick", }
+        }
+    })
 
-minetest.register_craft({
-	output = "lrfurn:coffeetable",
-	recipe = {
-		{"", "", "", },
-		{"group:wood_slab", "group:wood_slab", "group:wood_slab", },
-		{"default:stick", "", "default:stick", }
-	}
-})
+    minetest.register_craft({
+        output = "lrfurn:coffeetable",
+        recipe = {
+            {"", "", "", },
+            {"moreblocks:slab_wood", "moreblocks:slab_wood", "moreblocks:slab_wood", },
+            {"default:stick", "", "default:stick", }
+        }
+    })
 
+    minetest.register_craft({
+        output = "lrfurn:coffeetable",
+        recipe = {
+            {"", "", "", },
+            {"group:wood_slab", "group:wood_slab", "group:wood_slab", },
+            {"default:stick", "", "default:stick", }
+        }
+    })
+end
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "coffeetable loaded")
 end
