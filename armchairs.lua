@@ -7,6 +7,10 @@ else
   S = function ( s ) return s end
 end
 
+if minetest.get_modpath("mcl_sounds") then
+    default=mcl_sounds
+end
+
 local armchairs_list = {
 	{ "Red Armchair", "red"},
 	{ "Orange Armchair", "orange"},	
@@ -68,33 +72,62 @@ for i in ipairs(armchairs_list) do
 			clicker:set_hp(20)
 		end
 	})
-	
-	minetest.register_craft({
-		output = "lrfurn:armchair_"..colour,
-		recipe = {
-			{"wool:"..colour, "", "", },
-			{"stairs:slab_wood", "", "", },
-			{"default:stick", "", "", }
-		}
-	})
-	
-	minetest.register_craft({
-		output = "lrfurn:armchair_"..colour,
-		recipe = {
-			{"wool:"..colour, "", "", },
-			{"moreblocks:slab_wood", "", "", },
-			{"default:stick", "", "", }
-		}
-	})
+    
+    if minetest.get_modpath("mcl_core") then
+        minetest.register_craft({
+            output = "lrfurn:armchair_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "", "", },
+                {"mcl_stairs:slab_wood", "", "", },
+                {"mcl_core:stick", "", "", }
+            }
+        })
+        
+        minetest.register_craft({
+            output = "lrfurn:armchair_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "", "", },
+                {"mcl_core:stick", "", "", },
+                {"mcl_core:stick", "", "", }
+            }
+        })
 
-	minetest.register_craft({
-		output = "lrfurn:armchair_"..colour,
-		recipe = {
-			{"wool:"..colour, "", "", },
-			{"group:wood_slab", "", "", },
-			{"default:stick", "", "", }
-		}
-	})
+        minetest.register_craft({
+            output = "lrfurn:armchair_"..colour,
+            recipe = {
+                {"mcl_wool:"..colour, "", "", },
+                {"group:wood_slab", "", "", },
+                {"mcl_core:stick", "", "", }
+            }
+        })
+    else
+        minetest.register_craft({
+            output = "lrfurn:armchair_"..colour,
+            recipe = {
+                {"wool:"..colour, "", "", },
+                {"stairs:slab_wood", "", "", },
+                {"default:stick", "", "", }
+            }
+        })
+        
+        minetest.register_craft({
+            output = "lrfurn:armchair_"..colour,
+            recipe = {
+                {"wool:"..colour, "", "", },
+                {"moreblocks:slab_wood", "", "", },
+                {"default:stick", "", "", }
+            }
+        })
+
+        minetest.register_craft({
+            output = "lrfurn:armchair_"..colour,
+            recipe = {
+                {"wool:"..colour, "", "", },
+                {"group:wood_slab", "", "", },
+                {"default:stick", "", "", }
+            }
+        })
+    end
 
 end
 
